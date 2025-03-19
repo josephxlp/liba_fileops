@@ -1,4 +1,5 @@
 import os
+import tarfile
 import shutil
 from concurrent.futures import ThreadPoolExecutor
 
