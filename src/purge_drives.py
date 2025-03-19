@@ -147,22 +147,19 @@ drive_name = None
 drive_name = "driveb" 
 drive_name = "drivea" 
 level = 2
+
+
+drive_names = ["drivea","driveb",None]
+
 if __name__ == "__main__":
     from upaths import name
-
-    if drive_name == "drivea":
+    for drive_name in drive_names:
         print(drive_name)
         trash_directory = f"/media/{name}/12TBWolf/.Trash-1001"
         print(trash_directory)
-        clean_trash(trash_directory, level=level, verbose=True)  # Clean everything with verbose output
-        print(drive_name)
-    elif drive_name == "driveb":
-        print(drive_name)
-        trash_directory = f"/media/{name}/6tb1/.Trash-1001"
-        clean_trash(trash_directory, level=level, verbose=True)
-        print(drive_name)
-    else:
-        print(drive_name)
-        trash_directory = f"/home/{name}/.local/share/Trash/"
-        clean_trash(trash_directory, level=level, verbose=True)
-        print(drive_name)
+        try:
+            clean_trash(trash_directory, level=level, verbose=True)
+        except:
+            print('Drive Not Found')
+
+
